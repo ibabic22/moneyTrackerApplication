@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #3a7fd5, #6ebce2); 
+}
+.margin-5-percent {
+    margin: 5%;
+}
+.margin-bottom {
+    margin-bottom: 25px;
+}
