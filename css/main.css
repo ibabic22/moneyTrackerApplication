@@ -9,3 +9,12 @@ body {
 .margin-bottom {
     margin-bottom: 25px;
 }
+select {
+    font-family: FontAwesome, sans-serif;
+}
+
+#chartdiv {
+    width: 100%;
+    height: 500px;
+  }
+  
