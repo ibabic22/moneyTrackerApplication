@@ -3,6 +3,9 @@ body {
     padding: 0;
     background: linear-gradient(to right, #3a7fd5, #6ebce2); 
 }
+.header-margin {
+    margin-bottom: 50px;
+}
 .margin-5-percent {
     margin: 5%;
 }
