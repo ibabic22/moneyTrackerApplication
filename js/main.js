@@ -36,6 +36,7 @@ $(document).ready(function() {
   } );
 } );
 
+
 /**
  * ---------------------------------------
  * This demo was created using amCharts 4.
