@@ -59,6 +59,23 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="currency" value="RSD" checked>RSD
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="currency" value="EUR">EUR
+                        </label>
+                    </div>
+                    <div class="form-check-inline disabled">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="currency" value="USD">USD
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="comment">Comment:</label>
                     <div class="col-10 p-0">
                         <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
@@ -73,26 +90,71 @@
                 <div class="btn-group" role="group" id="ed-buttons">
                     <button id="editRow" type="button" class="btn btn-info" data-toggle="modal" data-target="#editModal">Edit</button>
 
-                    <!-- Modal -->
-                <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="editModalLabel">Edit</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editModalLabel">Edit Row</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    
+                                    <div class="form-group">
+                                        <label for="date-input">Date:</label>
+                                        <div class="col-10 p-0">
+                                            <input class="form-control" type="date" value="" id="date-input" name="date-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="category-input">Category:</label>
+                                        <select class="form-control col-10" id="category-input" name="category-input" data-show-icon="true">
+                                            <option value="1">Salary</option>
+                                            <option value="2"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping</option>
+                                            <option value="3">Sport</option>
+                                            <option value="4">Food</option>
+                                        </select>
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="number-input">Sum:</label>
+                                        <div class="col-10 p-0">
+                                            <input class="form-control" type="number" value="0" id="number-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input radio-input" name="rsd" checked>RSD
+                                            </label>
+                                        </div>
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+                                              <input type="radio" class="form-check-input radio-input" name="eur">EUR
+                                            </label>
+                                        </div>
+                                        <div class="form-check-inline disabled">
+                                            <label class="form-check-label">
+                                              <input type="radio" class="form-check-input radio-input" name="usd">USD
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="comment">Comment:</label>
+                                        <div class="col-10 p-0">
+                                            <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                        ...
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                    </div>
-                </div>
 
 
                     <button id="deleteRow" type="button" class="btn btn-danger">Delete</button>
@@ -104,6 +166,7 @@
                             <th>Category</th>
                             <th>Comment</th>
                             <th>Sum</th>
+                            <th>Currency</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -130,5 +193,6 @@
     
 
     <script src="js/main.js"></script>
+    <script src="js/charts.js"></script>
 </body>
 </html>
