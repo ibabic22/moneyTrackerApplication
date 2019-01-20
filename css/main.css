@@ -16,7 +16,11 @@ select {
     font-family: FontAwesome, sans-serif;
 }
 #chartdiv {
-    width: 100%;
+    width: 700px;
+    height: 500px;
+}
+#chartdiv2 {
+    width: 700px;
     height: 500px;
 }
 #ed-buttons {
@@ -24,4 +28,13 @@ select {
 }
 #editRow {
     margin-right: 10px;
+}
+.mw-80-percent {
+    max-width: 80% !important;
+}
+.w-100-percent {
+    width: 100%;
+}
+.mt-140 {
+    margin-top: 140px !important;
 }

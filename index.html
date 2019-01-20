@@ -6,6 +6,7 @@
     <title>moneyTracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link rel="shortcut icon" href="#"/>
 
     <!-- JQuery -->
     <script src="js/jquery v3.3.1.js"></script>
@@ -87,7 +88,7 @@
             </div>
             
             <div class="col-md-6">
-                <div class="btn-group" role="group" id="ed-buttons">
+                <div class="btn-group d-block" role="group" id="ed-buttons">
                     <button id="editRow" type="button" class="btn btn-info" data-toggle="modal" data-target="#editModal">Edit</button>
 
                         <!-- Modal -->
@@ -158,6 +159,37 @@
 
 
                     <button id="deleteRow" type="button" class="btn btn-danger">Delete</button>
+                    <button id="showCharts" type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#chartsModal">Show Charts</button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="chartsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog mw-80-percent mt-140" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header w-100-percent">
+                                    <h5 class="modal-title m-auto" id="exampleModalLabel">Charts</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <div id="chartdiv"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <div id="chartdiv2"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+
                 </div>
                 <table id="myTable" class="display" style="width:100%">
                     <thead>
@@ -177,16 +209,6 @@
             </div>
 
         </div>
-        
-        <div class="row">
-            <div class="col-md-6 mx-auto">
-                <div class="form-group row">
-                    <div id="chartdiv"></div>
-                </div>
-            </div>
-        </div>
-
-
 
     </div><!-- end-jumbotron -->
 
