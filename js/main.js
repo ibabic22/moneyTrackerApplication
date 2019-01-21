@@ -49,12 +49,13 @@ $(document).ready(function() {
 //     $('#myTable tbody').on( 'click', 'tr', function () {
 //         if ( $(this).hasClass('selected') ) {
 //             $(this).removeClass('selected');
+//             $('#editRow').prop('disabled', false);
 //         }
 //         else {
 //             table.$('tr.selected').removeClass('selected');
 //             $(this).addClass('selected');
+            
 //         }
-//     })
+//     });
 
 // });
-
