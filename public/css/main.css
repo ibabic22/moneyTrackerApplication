@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #3a7fd5, #6ebce2); 
+}
+.header-margin {
+    margin-bottom: 50px;
+}
+.margin-5-percent {
+    margin: 5%;
+}
+.margin-bottom {
+    margin-bottom: 25px;
+}
+select {
+    font-family: FontAwesome, sans-serif;
+}
+#chartdiv {
+    width: 700px;
+    height: 500px;
+}
+#chartdiv2 {
+    width: 700px;
+    height: 500px;
+}
+#ed-buttons {
+    margin: 0px 0 30px 0px;
+}
+#editRow {
+    margin-right: 10px;
+}
+.mw-80-percent {
+    max-width: 80% !important;
+}
+.w-100-percent {
+    width: 100%;
+}
+.mt-140 {
+    margin-top: 140px !important;
+}

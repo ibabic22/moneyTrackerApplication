@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>moneyTracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link rel="shortcut icon" href="#"/>
+
+    <!-- JQuery -->
+    <script src="js/jquery v3.3.1.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="css/datatables.min.css" type="text/css">
+    <script src="js/datatables.min.js"></script>
+
+    <!-- Awesome Font -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    
+    <!-- amCharts -->
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+</head>
+<body>
+    
+    <div class="jumbotron margin-5-percent">
+        <div class="header text-center header-margin">
+            <h1>Money Tracker Application</h1>
+        </div>
+
+        <div class="row margin-bottom">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="date-input">Date:</label>
+                    <div class="col-10 p-0">
+                        <input class="form-control" type="date" value="" id="date-input" name="date-input">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="category-input">Category:</label>
+                    <select class="form-control col-10" id="category-input" name="category-input" data-show-icon="true">
+                        <option value="1">Salary</option>
+                        <option value="2"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping</option>
+                        <option value="3">Sport</option>
+                        <option value="4">Food</option>
+                    </select>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="number-input">Sum:</label>
+                    <div class="col-10 p-0">
+                        <input class="form-control" type="number" value="0" id="number-input">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="currency" value="RSD" checked>RSD
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="currency" value="EUR">EUR
+                        </label>
+                    </div>
+                    <div class="form-check-inline disabled">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="currency" value="USD">USD
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Comment:</label>
+                    <div class="col-10 p-0">
+                        <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+                    </div>
+                </div>
+                <div class="text-center col-10">
+                    <button id="addRow" type="button" class="btn btn-primary">Add a new expense</button>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="btn-group d-block" role="group" id="ed-buttons">
+                    <button id="editRow" type="button" class="btn btn-info" data-toggle="modal" data-target="#editModal" disabled>Edit</button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title m-auto" id="editModalLabel">Edit Row</h5>
+                                </div>
+                                <div class="modal-body">
+                                    
+                                    <div class="form-group">
+                                        <label for="date-input">Date:</label>
+                                        <div class="col-10 p-0">
+                                            <input class="form-control" type="date" value="" id="date-input" name="date-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="category-input">Category:</label>
+                                        <select class="form-control col-10" id="category-input" name="category-input" data-show-icon="true">
+                                            <option value="1">Salary</option>
+                                            <option value="2"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping</option>
+                                            <option value="3">Sport</option>
+                                            <option value="4">Food</option>
+                                        </select>
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="number-input">Sum:</label>
+                                        <div class="col-10 p-0">
+                                            <input class="form-control" type="number" value="0" id="number-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input radio-input" name="rsd" checked>RSD
+                                            </label>
+                                        </div>
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+                                              <input type="radio" class="form-check-input radio-input" name="eur">EUR
+                                            </label>
+                                        </div>
+                                        <div class="form-check-inline disabled">
+                                            <label class="form-check-label">
+                                              <input type="radio" class="form-check-input radio-input" name="usd">USD
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="comment">Comment:</label>
+                                        <div class="col-10 p-0">
+                                            <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+
+                    <button id="deleteRow" type="button" class="btn btn-danger">Delete</button>
+                    <button id="showCharts" type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#chartsModal">Show Charts</button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="chartsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog mw-80-percent mt-140" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header w-100-percent">
+                                    <h5 class="modal-title m-auto" id="exampleModalLabel">Charts</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <div id="chartdiv"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <div id="chartdiv2"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+
+                </div>
+                <table id="myTable" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Category</th>
+                            <th>Comment</th>
+                            <th>Sum</th>
+                            <th>Currency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+                                
+            </div>
+
+        </div>
+
+    </div><!-- end-jumbotron -->
+
+    
+
+    <script src="js/main.js"></script>
+    <script src="js/charts.js"></script>
+</body>
+</html>
