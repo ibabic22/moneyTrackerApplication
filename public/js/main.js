@@ -9,11 +9,10 @@ $(document).ready(function() {
  
     $('#addRow').on( 'click', function () {
         table.row.add( [
-            $('#date-input').val(),
-            $('#category-input option:selected').text(),
-            $('#number-input').val(),
-            $("input[name='currency']:checked").val(),
-            $('#comment').val()
+            $('#main_date').val(),
+            $('#main_cat option:selected').text(),
+            $('#main_sum').val(),
+            $('#main_com').val()
         ] ).draw( false );
     } );
 } );
@@ -28,7 +27,7 @@ $(document).ready(function() {
 
   $('#myTable tbody').on( 'click', 'tr', function () {
       if ( $(this).hasClass('selected') ) {
-          $(this).removeClass('selected');
+          $(this).removeClass('selected');   
       }
       else {
           table.$('tr.selected').removeClass('selected');

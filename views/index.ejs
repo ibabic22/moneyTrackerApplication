@@ -18,9 +18,6 @@
     <!-- DataTables -->
     <link rel="stylesheet" href="css/datatables.min.css" type="text/css">
     <script src="js/datatables.min.js"></script>
-
-    <!-- Awesome Font -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     
     <!-- amCharts -->
     <script src="https://www.amcharts.com/lib/4/core.js"></script>
@@ -37,54 +34,39 @@
 
         <div class="row margin-bottom">
             <div class="col-md-6">
-                <div class="form-group">
-                    <label for="date-input">Date:</label>
-                    <div class="col-10 p-0">
-                        <input class="form-control" type="date" value="" id="date-input" name="date-input">
+                <form>
+                    <div class="form-group">
+                        <label for="main_date">Date:</label>
+                        <div class="col-10 p-0">
+                            <input class="form-control" type="date" value="" id="main_date" name="main_date">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="category-input">Category:</label>
-                    <select class="form-control col-10" id="category-input" name="category-input" data-show-icon="true">
-                        <option value="1">Salary</option>
-                        <option value="2"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping</option>
-                        <option value="3">Sport</option>
-                        <option value="4">Food</option>
-                    </select>
-                    
-                </div>
-                <div class="form-group">
-                    <label for="number-input">Sum:</label>
-                    <div class="col-10 p-0">
-                        <input class="form-control" type="number" value="0" id="number-input">
+                    <div class="form-group">
+                        <label for="main_cat">Category:</label>
+                        <select class="form-control col-10" id="main_cat" name="main_cat">
+                            <option value="1">Salary</option>
+                            <option value="2">Shopping</option>
+                            <option value="3">Sport</option>
+                            <option value="4">Food</option>
+                        </select>
+                        
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-check-inline">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="currency" value="RSD" checked>RSD
-                        </label>
+                    <div class="form-group">
+                        <label for="main_sum">Sum:</label>
+                        <div class="col-10 p-0">
+                            <input class="form-control" type="number" value="0" id="main_sum" name="main_sum">
+                        </div>
                     </div>
-                    <div class="form-check-inline">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="currency" value="EUR">EUR
-                        </label>
+                    <div class="form-group">
+                        <label for="main_com">Comment:</label>
+                        <div class="col-10 p-0">
+                            <textarea class="form-control" rows="5" id="main_com" name="main_com"></textarea>
+                        </div>
                     </div>
-                    <div class="form-check-inline disabled">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="currency" value="USD">USD
-                        </label>
+                    <div class="text-center col-10">
+                        <button id="addRow" type="button" class="btn btn-primary">Add a new expense</button>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="comment">Comment:</label>
-                    <div class="col-10 p-0">
-                        <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
-                    </div>
-                </div>
-                <div class="text-center col-10">
-                    <button id="addRow" type="button" class="btn btn-primary">Add a new expense</button>
-                </div>
+                </form>
             </div>
             
             <div class="col-md-6">
@@ -123,21 +105,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="form-check-inline">
-                                            <label class="form-check-label">
-                                                <input type="radio" class="form-check-input radio-input" name="rsd" checked>RSD
-                                            </label>
-                                        </div>
-                                        <div class="form-check-inline">
-                                            <label class="form-check-label">
-                                              <input type="radio" class="form-check-input radio-input" name="eur">EUR
-                                            </label>
-                                        </div>
-                                        <div class="form-check-inline disabled">
-                                            <label class="form-check-label">
-                                              <input type="radio" class="form-check-input radio-input" name="usd">USD
-                                            </label>
-                                        </div>
+                                        
                                     </div>
                                     <div class="form-group">
                                         <label for="comment">Comment:</label>
@@ -194,7 +162,6 @@
                             <th>Date</th>
                             <th>Category</th>
                             <th>Sum</th>
-                            <th>Currency</th>
                             <th>Comment</th>
                         </tr>
                     </thead>
@@ -204,7 +171,6 @@
                                 <td><%= main.main_date.toISOString().slice(0,10); %></td>
                                 <td><%= main.main_cat %></td>
                                 <td><%= main.main_sum %></td>
-                                <td><%= main.main_currency %></td>
                                 <td><%= main.main_com %></td>
                             </tr>
                         <% }) %>

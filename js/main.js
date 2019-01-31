@@ -9,11 +9,10 @@ $(document).ready(function() {
  
     $('#addRow').on( 'click', function () {
         table.row.add( [
-            $('#date-input').val(),
-            $('#category-input option:selected').text(),
-            $('#comment').val(),
-            $('#number-input').val(),
-            $("input[name='currency']:checked").val()
+            $('#main_date').val(),
+            $('#main_cat option:selected').text(),
+            $('#main_sum').val(),
+            $('#main_com').val()
         ] ).draw( false );
     } );
 } );

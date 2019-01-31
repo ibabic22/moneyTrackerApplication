@@ -17,7 +17,7 @@ const con = mysql.createConnection({
 
 // Body Parser Middleware
 app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({ extended: true }));
+app.use(bodyparser.urlencoded({ extended: false }));
 
 // View Engine
 app.set('view engine', 'ejs');
@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('js', express.static('js'))
 
 app.get('/', function(req, res) {
-    con.query('SELECT main_id, main_date, main_cat, main_sum, main_currency, main_com FROM main', function(err, result) {
+    con.query('SELECT main_id, main_date, main_cat, main_sum, main_com FROM main', function(err, result) {
         if (err) {
             throw err;
         } else {
@@ -39,6 +39,18 @@ app.get('/', function(req, res) {
         }
     })
 })
+
+// app.get('/:id',(req, res)=> {
+//     con.query('DELETE FROM main where main_id= ?', [req.params.id],(err, rows,fields)=> {
+//         if (!err) {
+//             res.send('Deleted successfully.');
+//         } else {
+//           console.log(err);
+//             console.log(main);
+           
+//        }
+//    })
+// })
 
 app.listen(port, function() {
     console.log(`Example app listening on port ${port}!`);
