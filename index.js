@@ -6,14 +6,16 @@ const mysql = require('mysql');
 const port = 3000;
 const bodyparser = require('body-parser');
 
-const con = mysql.createConnection({
+const db = mysql.createConnection({
     host: 'sqldemo.softmetrixgroup.com',
     port: '3306',
     user: 'root',
     password: 'smx1111',
-    database: 'moneyTracker',
+    database: 'moneytracker',
     multipleStatements: true
 });
+
+global.db = db;
 
 // Body Parser Middleware
 app.use(bodyparser.json());
@@ -26,10 +28,10 @@ app.set('views', path.join(__dirname, 'views'));
 // Set Static Path
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('js', express.static('js'))
+app.use('js', express.static('js'));
 
 app.get('/', function(req, res) {
-    con.query('SELECT main_id, main_date, main_cat, main_sum, main_com FROM main', function(err, result) {
+    db.query('SELECT main_id, main_date, main_cat, main_sum, main_com FROM main', function(err, result) {
         if (err) {
             throw err;
         } else {
@@ -40,9 +42,14 @@ app.get('/', function(req, res) {
     })
 })
 
-// app.get('/:id',(req, res)=> {
-//     con.query('DELETE FROM main where main_id= ?', [req.params.id],(err, rows,fields)=> {
+// app.post('/delete',(req, res)=> {
+//     let delete_id = Number(req.body.main_id); 
+//     console.log(req.params);
+//     con.query('DELETE FROM main where main_id= ?', [delete_id],(err, rows,fields)=> {
 //         if (!err) {
+//             data = {
+//                 deleted: true
+//             }
 //             res.send('Deleted successfully.');
 //         } else {
 //           console.log(err);
@@ -52,7 +59,28 @@ app.get('/', function(req, res) {
 //    })
 // })
 
+
 app.listen(port, function() {
     console.log(`Example app listening on port ${port}!`);
+});
+
+
+app.post('/add',function(req, response) {
+
+    
+    var form = {
+        main_date: req.body.main_date,
+        main_cat: req.body.main_cat,
+        main_sum: req.body.main_sum,
+        main_com: req.body.main_com
+    }
+
+    db.query('INSERT INTO main (main_date, main_cat, main_sum, main_com) VALUES ("' + form.main_date + '", "' + form.main_cat + '", ' + form.main_sum + ', "' + form.main_com + '")',  function (err, res) {
+        if (err) {
+            throw err;
+        } else {
+            response.send('200');
+        }
+    }) 
 });
 
