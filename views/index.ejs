@@ -159,6 +159,7 @@
                 <table id="myTable" class="display" style="width:100%">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>Date</th>
                             <th>Category</th>
                             <th>Sum</th>
@@ -168,6 +169,7 @@
                     <tbody>
                         <% main.forEach(function(main) { %>
                             <tr>
+                                <td><%= main.main_id %></td>
                                 <td><%= main.main_date.toISOString().slice(0,10); %></td>
                                 <td><%= main.main_cat %></td>
                                 <td><%= main.main_sum %></td>

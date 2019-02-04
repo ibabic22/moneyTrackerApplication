@@ -57,16 +57,26 @@ $(document).ready(function() {
   } );
 
   $('#deleteRow').click( function () {
-        table.row('.selected').remove().draw( false );
-    //     $.ajax({
-    //     type: 'Delete',
-    //     url: '/delete',
-    //     success:function(){
-    //     console.log('Uspesno ste obrisali')
-    //     }
-    //     });
-    } );
-} );
+        let row = table.row('.selected');
+        let data = {
+            main_id: row.data()[0],
+            isAjax: true,
+        };
+        $.ajax({
+            type: 'post',
+            url: '/delete',
+            data : data,
+            dataType: 'json',
+            success: function(data){
+                if(data.delete == true){
+                row.remove().draw( false );
+                
+                }
+            }
+        });
+        window.location.href= "/";             
+    });
+});
 
 
 // Edit
