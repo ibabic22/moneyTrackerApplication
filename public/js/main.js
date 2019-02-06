@@ -57,16 +57,23 @@ $(document).ready(function() {
   } );
 
   $('#deleteRow').click( function () {
-        table.row('.selected').remove().draw( false );
-    //     $.ajax({
-    //     type: 'Delete',
-    //     url: '/delete',
-    //     success:function(){
-    //     console.log('Uspesno ste obrisali')
-    //     }
-    //     });
-    } );
-} );
+        let row = table.row('.selected');
+        let data = {
+            main_id: row.data()[0],
+            isAjax: true,
+        };
+        fetch('/delete', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+
+        }).then(function(res){
+            row.remove().draw();
+        })      
+    });
+});
 
 
 // Edit

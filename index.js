@@ -41,33 +41,28 @@ app.get('/', function(req, res) {
         }
     })
 })
-
-// app.post('/delete',(req, res)=> {
-//     let delete_id = Number(req.body.main_id); 
-//     console.log(req.params);
-//     con.query('DELETE FROM main where main_id= ?', [delete_id],(err, rows,fields)=> {
-//         if (!err) {
-//             data = {
-//                 deleted: true
-//             }
-//             res.send('Deleted successfully.');
-//         } else {
-//           console.log(err);
-//             console.log(main);
+app.post('/delete',(req, res)=> {
+    let delete_id = Number(req.body.main_id); 
+    db.query('DELETE FROM main where main_id= ?', [delete_id],(err, rows,fields)=> {
+        if (!err) {
+            data = {
+                deleted: true
+            }
+            res.send('Deleted successfully.');
+        } else {
+            console.log(err);
+            console.log(main);
            
-//        }
-//    })
-// })
-
+       }
+   })
+})
 
 app.listen(port, function() {
     console.log(`Example app listening on port ${port}!`);
 });
 
-
 app.post('/add',function(req, response) {
 
-    
     var form = {
         main_date: req.body.main_date,
         main_cat: req.body.main_cat,
@@ -83,4 +78,3 @@ app.post('/add',function(req, response) {
         }
     }) 
 });
-

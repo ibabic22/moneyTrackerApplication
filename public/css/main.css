@@ -38,3 +38,6 @@ select {
 .mt-140 {
     margin-top: 140px !important;
 }
+.d-none {
+    display: none;
+}
