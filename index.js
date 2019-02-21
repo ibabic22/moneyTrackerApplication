@@ -50,11 +50,27 @@ app.post('/delete',(req, res)=> {
             }
             res.send('Deleted successfully.');
         } else {
-            console.log(err);
-            console.log(main);
+            // console.log(err);
+            // console.log(main);
            
        }
    })
+})
+
+app.post('/edit', (req, response) => {
+    let form = {
+        main_date: req.body.main_date,
+        main_cat: req.body.main_cat,
+        main_sum: req.body.main_sum,
+        main_com: req.body.main_com
+    }
+    db.query("UPDATE main SET `main_date` = '" + form.main_date + "', `main_cat` = '" + form.main_cat + "', `main_sum` = '" + form.main_sum + "', `main_com` = '" + form.main_com + "' WHERE `main_id`.`id` = '" + main_id + "'"), function(err, res) {
+        if (err) {
+            throw err;
+        } else {
+            response.send('200');
+        }
+    }
 })
 
 app.listen(port, function() {
@@ -70,11 +86,13 @@ app.post('/add',function(req, response) {
         main_com: req.body.main_com
     }
 
-    db.query('INSERT INTO main (main_date, main_cat, main_sum, main_com) VALUES ("' + form.main_date + '", "' + form.main_cat + '", ' + form.main_sum + ', "' + form.main_com + '")',  function (err, res) {
+    db.query('INSERT INTO main (main_id, main_date, main_cat, main_sum, main_com) VALUES (NULL, "' + form.main_date + '", "' + form.main_cat + '", ' + form.main_sum + ', "' + form.main_com + '")',  function (err, res) {
         if (err) {
             throw err;
         } else {
-            response.send('200');
+            console.log(res.insertId.toString());
+            response.send(res.insertId.toString());
+           
         }
     }) 
 });
