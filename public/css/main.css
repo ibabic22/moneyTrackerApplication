@@ -1,4 +1,4 @@
-body {
+/* body {
     margin: 0;
     padding: 0;
     background: linear-gradient(to right, #3a7fd5, #6ebce2); 
@@ -37,7 +37,223 @@ select {
 }
 .mt-140 {
     margin-top: 140px !important;
+} */
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    /*background: linear-gradient(to right, #0F1B07 0%,  #C6D166 100%);*/
+    background-image: url('../images/11.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+        
+}
+
+.header-margin {
+    margin-bottom: 50px;
+}
+.margin-5-percent {
+    margin: 5%;
+}
+.margin-bottom {
+    margin-bottom: 25px;
+}
+
+select {
+    padding:3px;
+    margin: 0;
+}
+option{
+    font-family: 'Laila', serif;
+}
+#main_com{
+    font-family: 'Laila', serif;
+    font-weight: bold;
+}
+#chartdiv {
+    width: 700px;
+    height: 500px;
+}
+#chartdiv2 {
+    width: 700px;
+    height: 500px;
+}
+#ed-buttons {
+    margin: 0px 0 30px 0px;
+}
+.btn{
+    font-family: 'Laila', serif;
+}
+.mw-80-percent {
+    max-width: 80% !important;
+}
+.w-100-percent {
+    width: 100%;
+}
+.mt-140 {
+    margin-top: 140px !important;
 }
 .d-none {
     display: none;
+}
+#editRow{
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-top-left-radius: 20px;
+    background-color: #00B100;
+    border: none;
+}
+#editRow:hover{
+    border-top-left-radius: 20px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#deleteRow{
+    padding: 10px;
+    border-bottom-right-radius: 20px;
+    background-color: #e57777;
+    border: none;
+}
+#deleteRow:hover{
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#addRow{
+   /* padding: 10px;*/
+    border-radius: 25px;
+    margin-bottom: 5px;
+    background-color: #916a41;
+    border: none;
+}
+
+#addRow:hover {
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#addCat{
+    /*padding: 10px;*/
+    margin-left: 10px;
+    border-radius: 25px;
+    margin-bottom: 5px;
+    background-color: #916a41;
+    border: none;
+}
+#addCat:hover {
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#showCharts{
+    padding: 10px;
+    background-color: #916a41;
+    border: none;
+    border-radius: 25px;
+}
+
+#showCharts:hover {
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#showBalance{
+    padding: 10px;
+    background-color: #916a41;
+    border: none;
+    border-radius: 25px;
+}
+
+#showBalance:hover {
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+input {
+
+    border-radius: 15px 15px 15px 15px;
+}
+
+
+h1{
+    text-shadow: 2px 2px 14px black;
+    
+}
+
+
+table{
+    font-family: 'Laila', serif;
+    font-weight: bold;
+}
+
+
+table thead{
+    background: linear-gradient(to right, #f4daa0 0%, #86684b  100%);
+    color: black;
+    font-family: 'Laila', serif;
+    font-size: 18px;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track*/ 
+::-webkit-scrollbar-track {
+  background: #cfc3b5; 
+}
+ 
+ /*Handle */
+::-webkit-scrollbar-thumb {
+  background:#939393; 
+}
+
+ /*Handle on hover*/ 
+::-webkit-scrollbar-thumb:hover {
+  background:#cdab90; 
+}
+
+
+
+label{
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Indie Flower', cursive;
+}
+
+.modal-body{
+    background: linear-gradient(to right, #f4daa0 0%, #86684b  100%);
+}
+
+button.save{
+    background-color: #916a41;
+    border:none;
+}
+
+button.save:hover {
+  color: white;
+  background-color: #916a41;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#main_cat{
+background-color: #dbc2ae;
+}
+div textarea.color{
+    background-color: #dbc2ae;
+}
+div input.color{
+    background-color: #dbc2ae;
+}
+#Salary {
+    text-align: center;
+    margin-top: 5px;
+}
+
+@media only screen and (max-width: 766px) {
+    #form {
+        margin-bottom: 30px;
+    }
 }

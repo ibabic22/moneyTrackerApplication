@@ -27,18 +27,18 @@
 </head>
 <body>
     
-    <div class="jumbotron margin-5-percent">
+    <div class=" margin-5-percent">
         <div class="header text-center header-margin">
-            <h1>Money Tracker Application</h1>
+            <h1 class ="display-2">Money Tracker Application</h1>
         </div>
 
         <div class="row margin-bottom">
-            <div class="col-md-6">
-                <form>
+            <div class="col-md-6" id="form">
+                <form action="/add" method="POST">
                     <div class="form-group">
                         <label for="main_date">Date:</label>
                         <div class="col-10 p-0">
-                            <input class="form-control" type="date" value="" id="main_date" name="main_date">
+                            <input class="form-control color" type="date" value="" id="main_date" name="main_date">
                         </div>
                     </div>
                     <div class="form-group">
@@ -48,30 +48,32 @@
                             <option value="Shopping">Shopping</option>
                             <option value="Sport">Sport</option>
                             <option value="Food">Food</option>
+                            <option id="novo"></option>
                         </select>
                         
                     </div>
                     <div class="form-group">
                         <label for="main_sum">Sum:</label>
                         <div class="col-10 p-0">
-                            <input class="form-control" type="number" value="0" id="main_sum" name="main_sum">
+                            <input class="form-control color" type="number" value="0" id="main_sum" name="main_sum">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="main_com">Comment:</label>
                         <div class="col-10 p-0">
-                            <textarea class="form-control" rows="5" id="main_com" name="main_com"></textarea>
+                            <textarea class="form-control color" rows="5" id="main_com" name="main_com"></textarea>
                         </div>
                     </div>
-                    <div class="text-center col-10">
+                    <div class="text-center col-10 btn-group" role = "group" aria-label>
                         <button id="addRow" type="button" class="btn btn-primary">Add a new expense</button>
+                        <button onclick="myFunction()" id="addCat" type="button" class="btn btn-primary">Add a new category</button>
                     </div>
                 </form>
             </div>
             
             <div class="col-md-6">
                 <div class="btn-group d-block" role="group" id="ed-buttons">
-                    <button id="editRow" type="button" class="btn btn-info" data-toggle="modal" data-target="#editModal" disabled>Edit</button>
+                    <!-- <button id="editRow" type="button" class="btn btn-info" data-toggle="modal" data-target="#editModal">Edit</button> -->
 
                         <!-- Modal -->
                         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
@@ -81,49 +83,62 @@
                                     <h5 class="modal-title m-auto" id="editModalLabel">Edit Row</h5>
                                 </div>
                                 <div class="modal-body">
-                                    
-                                    <div class="form-group">
-                                        <label for="date-input">Date:</label>
+                                <form action="/edit" method="POST">
+                                    <div class="form-group d-none">
+                                        <label for="number-input">Id:</label>
                                         <div class="col-10 p-0">
-                                            <input class="form-control" type="date" value="" id="date-input" name="date-input">
+                                            <input class="form-control" type="number" value="" id="id">
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="category-input">Category:</label>
-                                        <select class="form-control col-10" id="category-input" name="category-input" data-show-icon="true">
-                                            <option value="1">Salary</option>
-                                            <option value="2"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping</option>
-                                            <option value="3">Sport</option>
-                                            <option value="4">Food</option>
-                                        </select>
-                                        
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="number-input">Sum:</label>
-                                        <div class="col-10 p-0">
-                                            <input class="form-control" type="number" value="0" id="number-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="comment">Comment:</label>
-                                        <div class="col-10 p-0">
-                                            <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
-                                        </div>
-                                    </div>
+
+                                <div class="form-group">
+                                <label for="date-input">Date:</label>
+                                <div class="col-10 p-0">
+                                    <input class="form-control" type="date" value="" id="date" name="date">
+                                </div>
+                                </div>
+                                <div class="form-group">
+                                <label for="catt">Category:</label>
+                                <input class="form-control" type="text" value="" id="cat" name="cat">
+                                <!-- <select class="form-control col-10" id="category" name="category" data-show-icon="true">
+                                    <option value="">Salary</option>
+                                    <option value=""><span class="glyphicon glyphicon-shopping-cart"></span>Shopping</option>
+                                    <option value="">Sport</option>
+                                    <option value="">Food</option>
+                                </select> -->
+
+                                </div>
+                                <div class="form-group">
+                                <label for="number-input">Sum:</label>
+                                <div class="col-10 p-0">
+                                    <input class="form-control" type="number" value="" id="number">
+                                </div>
+                                </div>
+                                <div class="form-group">
+
+                                </div>
+                                <div class="form-group">
+                                <label for="comment">Comment:</label>
+                                <div class="col-10 p-0">
+                                    <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+                                </div>
+                                </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary save" id = "save1">Save changes</button>
+                                <button id="deleteRow" type="button" class="btn btn-danger">Delete</button>
                                 </div>
+                                </form>
+                                        
                             </div>
                             </div>
                         </div>
 
+                       
+                       
 
-                    <button id="deleteRow" type="button" class="btn btn-danger">Delete</button>
+                    
                     <button id="showCharts" type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#chartsModal">Show Charts</button>
 
                         <!-- Modal -->
@@ -146,9 +161,18 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="p-0 ">
+                                                <button id ="showBalance" type ="button"  class="d-block mx-auto">Show Balance</button>
+                                                <div id="Salary"></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    
                                 </div>
                             </div>
                             </div>
@@ -156,10 +180,13 @@
 
 
                 </div>
+
+
+          <div class = "table-responsive">
                 <table id="myTable" class="display" style="width:100%">
                     <thead>
                         <tr>
-                            <th class="d-none">Id</th>
+                            <th class='d-none'>Id</th>
                             <th>Date</th>
                             <th>Category</th>
                             <th>Sum</th>
@@ -169,8 +196,8 @@
                     <tbody>
                         <% main.forEach(function(main) { %>
                             <tr>
-                                <td class="d-none"><%= main.main_id %></td>
-                                <td><%= main.main_date.toISOString().slice(0,10); %></td>
+                                <td class='d-none'><%= main.main_id %></td>
+                                <td><%= main.main_date.toISOString().slice(0,10) %></td>
                                 <td><%= main.main_cat %></td>
                                 <td><%= main.main_sum %></td>
                                 <td><%= main.main_com %></td>
@@ -178,16 +205,35 @@
                         <% }) %>
                     </tbody>
                 </table>
+            </div>
+
                                 
             </div>
 
         </div>
 
     </div><!-- end-jumbotron -->
-
-    
+    <div class="footer-copyright text-center py-3">© 2019 made by Creative Tim for a better web
+    </div>
 
     <script src="../js/main.js"></script>
     <script src="js/charts.js"></script>
+
+    <!-- <script src="//www.amcharts.com/lib/4/core.js"></script>
+    <script src="//www.amcharts.com/lib/4/charts.js"></script>
+    <script src="//www.amcharts.com/lib/4/themes/animated.js"></script> -->
+
 </body>
+<script>
+    function myFunction() {
+      var txt;
+      var person = prompt("Please enter a new category:", "New");
+      if (person == null || person == "") {
+        txt = "User cancelled the prompt.";
+      } else {
+        txt =  person ;
+      }
+      document.getElementById("novo").innerHTML = txt;
+    }
+    </script>
 </html>
